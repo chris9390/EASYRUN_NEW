@@ -1,0 +1,6 @@
+framework module Pods_EasyRun {
+  umbrella header "Pods-EasyRun-umbrella.h"
+
+  export *
+  module * { export * }
+}

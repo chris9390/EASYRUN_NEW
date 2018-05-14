@@ -1,0 +1,5 @@
+Google protobuf???
+텐서플로우는 파일 저장 포맷을 protocol buffer를 쓴다.
+
+
+http://bcho.tistory.com/1182
