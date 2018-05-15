@@ -7,42 +7,71 @@
 //
 
 import UIKit
-//import SQLite3
+import FirebaseDatabase
 
-
-var urlschemelist = ["kakaotalk://","fb://","megabox://","Meloniphone://","http://maps.apple.com/?q"]
+//var urlschemelist = ["kakaotalk://","fb://","megabox://","Meloniphone://","http://maps.apple.com/?q"]
 var installedapplist : [String] = []
+var urls : [String] = []
+
 
 class SecondTableViewController: UITableViewController {
+    
+    var ref:DatabaseReference!
+    var refHandle:DatabaseHandle!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        var db: OpaquePointer?
+        // Set the firebase reference
+        ref = Database.database().reference()
         
-//        let fileUrl = try!
-//            FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("urls.sqlite")
+        //Retrieve the urls and listen for changes
+        refHandle = ref.child("URLs").observe(.childAdded, with: {(snapshot) in
+                let urlscheme = snapshot.value as? String
+                //print(urlscheme)
+            
+                if let realscheme = urlscheme{
+
+                    //print(realscheme)
+
+                    urls.append(realscheme)
+                   // self.tableView.reloadData()
+                    
+                  //  print(urls)
+                }
+            
+            
+            if urls.count == 5 {
+                if installedapplist.count == 0 {
+                    //for index in urlschemelist{
+                    for index in urls{
+                        //print(index)
+                        if UIApplication.shared.canOpenURL(NSURL(string: index)! as URL){
+                            installedapplist.append(index)
+                        }
+                    }
+                    print(installedapplist)
+                    self.tableView.reloadData()
+
+                }
+            }
+        })
+            
+ 
         
-//        if sqlite3_open(fileUrl.path, &db) != SQLITE_OK{
-//            print("Error opening database")
-//            return
-//        }
-        
-       // let createTableQuery = "CREATE TABLE IF NOT EXISTS urls(id INTEGER PRIMARY KEY, appname TEXT, urlscheme TEXT)"
-        
-      //  if sqlite3_exec(db, createTableQuery, nil, nil, nil) != SQLITE_OK{
-       //     print("Error creating table")
-       //     return
-       // }
-         
-        
+        /*
         if installedapplist.count == 0 {
-            for index in urlschemelist{
+            //for index in urlschemelist{
+            for index in urls{
+                //print(index)
                 if UIApplication.shared.canOpenURL(NSURL(string: index)! as URL){
                     installedapplist.append(index)
                 }
             }
         }
+        */
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,7 +89,9 @@ class SecondTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
+    
         return installedapplist.count
+        //return urls.count
     }
     
     
@@ -76,50 +107,6 @@ class SecondTableViewController: UITableViewController {
     }
     
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
     
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            installedapplist.remove(at: (indexPath as NSIndexPath).row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
-    */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
