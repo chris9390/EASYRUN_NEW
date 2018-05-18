@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		67F401D62F7C1B047BB7A130 /* Pods_EasyRun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905D64D3C76A1F8238D1891A /* Pods_EasyRun.framework */; };
 		D3153E8620A96C9900EC918D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3153E8520A96C9800EC918D /* GoogleService-Info.plist */; };
+		D3153E8920AEE7AF00EC918D /* mnistCNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D3153E8820AEE7AF00EC918D /* mnistCNN.mlmodel */; };
+		D3153E8B20AEE99C00EC918D /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3153E8A20AEE99C00EC918D /* DrawView.swift */; };
 		D3284C6A20A32342000D259B /* SecondTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3284C6920A32342000D259B /* SecondTableViewController.swift */; };
 		D3313B1E207F722D005FD879 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3313B1D207F722D005FD879 /* FirstViewController.swift */; };
 		D3B65648209B2DF100D08DF9 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B65647209B2DF100D08DF9 /* ThirdViewController.swift */; };
@@ -24,6 +26,8 @@
 		905D64D3C76A1F8238D1891A /* Pods_EasyRun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyRun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB2E6AA5B19D5B4E229FB77A /* Pods-EasyRun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyRun.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyRun/Pods-EasyRun.release.xcconfig"; sourceTree = "<group>"; };
 		D3153E8520A96C9800EC918D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D3153E8820AEE7AF00EC918D /* mnistCNN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = mnistCNN.mlmodel; path = "../../../Documents/iOS-CoreML-MNIST/iOS-CoreML-MNIST/mnistCNN.mlmodel"; sourceTree = "<group>"; };
+		D3153E8A20AEE99C00EC918D /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		D3284C6920A32342000D259B /* SecondTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTableViewController.swift; sourceTree = "<group>"; };
 		D3313B1D207F722D005FD879 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		D3B65647209B2DF100D08DF9 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 			children = (
 				D3FE78BE207501A50073CD75 /* AppDelegate.swift */,
 				D3313B1D207F722D005FD879 /* FirstViewController.swift */,
+				D3153E8820AEE7AF00EC918D /* mnistCNN.mlmodel */,
 				D3FE78C2207501A50073CD75 /* Main.storyboard */,
 				D3FE78C5207501A70073CD75 /* Assets.xcassets */,
 				D3FE78C7207501A70073CD75 /* LaunchScreen.storyboard */,
@@ -96,6 +101,7 @@
 				D3F9E3EC20A02C8500D17028 /* TableViewController.swift */,
 				D3284C6920A32342000D259B /* SecondTableViewController.swift */,
 				D3153E8520A96C9800EC918D /* GoogleService-Info.plist */,
+				D3153E8A20AEE99C00EC918D /* DrawView.swift */,
 			);
 			path = EasyRun;
 			sourceTree = "<group>";
@@ -220,8 +226,10 @@
 			files = (
 				D3284C6A20A32342000D259B /* SecondTableViewController.swift in Sources */,
 				D3B65648209B2DF100D08DF9 /* ThirdViewController.swift in Sources */,
+				D3153E8B20AEE99C00EC918D /* DrawView.swift in Sources */,
 				D3FE78BF207501A50073CD75 /* AppDelegate.swift in Sources */,
 				D3F9E3ED20A02C8500D17028 /* TableViewController.swift in Sources */,
+				D3153E8920AEE7AF00EC918D /* mnistCNN.mlmodel in Sources */,
 				D3313B1E207F722D005FD879 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

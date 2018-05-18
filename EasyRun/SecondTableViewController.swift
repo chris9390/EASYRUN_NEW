@@ -12,6 +12,9 @@ import FirebaseDatabase
 //var urlschemelist = ["kakaotalk://","fb://","megabox://","Meloniphone://","http://maps.apple.com/?q"]
 var installedapplist : [String] = []
 var urls : [String] = []
+var appname : [String] = []
+
+var urldict : [String:String] = [:]
 
 
 class SecondTableViewController: UITableViewController {
@@ -28,30 +31,30 @@ class SecondTableViewController: UITableViewController {
         
         //Retrieve the urls and listen for changes
         refHandle = ref.child("URLs").observe(.childAdded, with: {(snapshot) in
-                let urlscheme = snapshot.value as? String
-                //print(urlscheme)
-            
-                if let realscheme = urlscheme{
-
-                    //print(realscheme)
-
-                    urls.append(realscheme)
-                   // self.tableView.reloadData()
-                    
-                  //  print(urls)
-                }
             
             
-            if urls.count == 5 {
+            
+            let urlscheme = snapshot.value as? String
+            let name : String? = snapshot.key
+            
+            
+            urls.append(urlscheme!)
+            appname.append(name!)
+            
+            urldict[name!] = urlscheme!
+           // print(urldict.count)
+    
+            
+            
+            if urldict.count == 11 {
                 if installedapplist.count == 0 {
-                    //for index in urlschemelist{
-                    for index in urls{
-                        //print(index)
-                        if UIApplication.shared.canOpenURL(NSURL(string: index)! as URL){
-                            installedapplist.append(index)
+                    for (key, value) in urldict{
+                        if UIApplication.shared.canOpenURL(NSURL(string: value)! as URL){
+                            installedapplist.append(key)
                         }
                     }
-                    print(installedapplist)
+                    
+                    //print(installedapplist)
                     self.tableView.reloadData()
 
                 }
@@ -91,7 +94,6 @@ class SecondTableViewController: UITableViewController {
         
     
         return installedapplist.count
-        //return urls.count
     }
     
     
