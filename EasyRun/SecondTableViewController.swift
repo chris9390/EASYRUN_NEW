@@ -9,7 +9,6 @@
 import UIKit
 import FirebaseDatabase
 
-//var urlschemelist = ["kakaotalk://","fb://","megabox://","Meloniphone://","http://maps.apple.com/?q"]
 var installedapplist : [String] = []
 var urls : [String] = []
 var appname : [String] = []
@@ -60,21 +59,6 @@ class SecondTableViewController: UITableViewController {
                 }
             }
         })
-            
- 
-        
-        /*
-        if installedapplist.count == 0 {
-            //for index in urlschemelist{
-            for index in urls{
-                //print(index)
-                if UIApplication.shared.canOpenURL(NSURL(string: index)! as URL){
-                    installedapplist.append(index)
-                }
-            }
-        }
-        */
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -103,12 +87,13 @@ class SecondTableViewController: UITableViewController {
         // Configure the cell...
         
         cell.textLabel?.text = installedapplist[(indexPath as NSIndexPath).row]
-        //cell.textLabel?.text = itemsImageFile[(indexPath as NSIndexPath).row]
         
         return cell
     }
     
-    
-    
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let contactDetailViewController = segue.destination as! ThirdViewController
+        let selectedIndex = installedapplist[tableView.indexPathForSelectedRow!.row]
+        contactDetailViewController.urlScheme = selectedIndex
+    }
 }

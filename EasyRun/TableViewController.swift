@@ -8,13 +8,11 @@
 
 import UIKit
 
-var items = ["facebook", "kakaotalk", "instagram"]
-var itemsImageFile = ["image1", "image2", "image3"]
+var items : [String] = []
 
 class TableViewController: UITableViewController {
-
-   
-    @IBOutlet var tvListView: UITableView!
+    
+    //@IBOutlet var tvListView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +48,6 @@ class TableViewController: UITableViewController {
         // Configure the cell...
 
         cell.textLabel?.text = items[(indexPath as NSIndexPath).row]
-        //cell.textLabel?.text = itemsImageFile[(indexPath as NSIndexPath).row]
         
         return cell
     }
@@ -69,13 +66,29 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            items.remove(at: (indexPath as NSIndexPath).row)
+            let result = items.remove(at: (indexPath as NSIndexPath).row)
+            let removeitem = String(result.split(separator: " ")[0])
             tableView.deleteRows(at: [indexPath], with: .fade)
+            savedDict.removeValue(forKey: removeitem)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
     
+    override func viewWillAppear(_ animated: Bool){
+        if items.count != savedDict.count{
+            items.removeAll()
+            for (key, value) in savedDict{
+                items.append(key + " -> " + value)
+            }
+            if items.count != 0{
+                let indexPath = IndexPath(row: items.count - 1, section: 0)
+                tableView.beginUpdates()
+                tableView.insertRows(at: [indexPath], with: .automatic)
+                tableView.endUpdates()
+            }
+        }
+    }
 
     /*
     // Override to support rearranging the table view.

@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Draw Pattern!-->
+        <!--Draw Patterns!-->
         <scene sceneID="61o-10-XmA">
             <objects>
                 <viewController restorationIdentifier="FirstVC" storyboardIdentifier="FirstVC" id="dbc-dq-IPg" customClass="FirstViewController" customModule="EasyRun" customModuleProvider="target" sceneMemberID="viewController">
@@ -26,7 +26,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eZ-TT-67V" customClass="DrawView" customModule="EasyRun" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="56" width="375" height="462"/>
-                                <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiD-dv-3Zq">
                                 <rect key="frame" x="273" y="570" width="86" height="48"/>
@@ -67,7 +67,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="169-WW-rtl"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Draw Pattern!" id="S7x-NI-Tw6"/>
+                    <tabBarItem key="tabBarItem" title="Draw Patterns!" id="S7x-NI-Tw6" userLabel="Draw Patterns!"/>
                     <navigationItem key="navigationItem" id="ftK-ap-RZU"/>
                     <connections>
                         <outlet property="drawView" destination="3eZ-TT-67V" id="y80-kK-wtd"/>
@@ -92,6 +92,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wR2-pI-UQn" id="bdR-IK-Cp4">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="RKK-nj-UbE" kind="show" id="Nf7-tM-lV3"/>
@@ -123,7 +124,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r2R-2H-9hM" id="0kM-vA-kTT">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" red="1" green="0.23275834731176337" blue="0.32833196986661473" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -140,9 +141,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="tvListView" destination="cOd-dM-0IN" id="Uyk-um-kgq"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N9k-iQ-DiB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -169,7 +167,8 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="1"/>
                                                 <connections>
-                                                    <action selector="Pattern1:" destination="RKK-nj-UbE" eventType="touchDown" id="38J-6d-Ty8"/>
+                                                    <action selector="Pattern1:" destination="RKK-nj-UbE" eventType="touchDown" id="m26-4V-e2m"/>
+                                                    <segue destination="IfW-k2-855" kind="show" id="I36-dc-ZEh"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRC-ob-nCe">
@@ -179,7 +178,8 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="2"/>
                                                 <connections>
-                                                    <action selector="Pattern1:" destination="RKK-nj-UbE" eventType="touchDown" id="YXc-IG-Ub2"/>
+                                                    <action selector="Pattern2:" destination="RKK-nj-UbE" eventType="touchDown" id="OrN-R6-QbQ"/>
+                                                    <segue destination="IfW-k2-855" kind="show" id="Beu-pT-jhk"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nY-qJ-Xjm">
@@ -189,7 +189,8 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="3"/>
                                                 <connections>
-                                                    <action selector="Pattern1:" destination="RKK-nj-UbE" eventType="touchDown" id="DqQ-Tw-rjX"/>
+                                                    <action selector="Pattern3:" destination="RKK-nj-UbE" eventType="touchDown" id="IIo-IQ-gsK"/>
+                                                    <segue destination="IfW-k2-855" kind="show" id="aZI-Zv-YMR"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -204,7 +205,8 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="4"/>
                                                 <connections>
-                                                    <action selector="Pattern1:" destination="RKK-nj-UbE" eventType="touchDown" id="fSD-4D-7cV"/>
+                                                    <action selector="Pattern4:" destination="RKK-nj-UbE" eventType="touchDown" id="MaC-0u-DzD"/>
+                                                    <segue destination="IfW-k2-855" kind="show" id="XAc-wH-Uzm"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1T-3a-Hao">
@@ -214,7 +216,8 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="5"/>
                                                 <connections>
-                                                    <action selector="Pattern1:" destination="RKK-nj-UbE" eventType="touchDown" id="p95-tP-loV"/>
+                                                    <action selector="Pattern5:" destination="RKK-nj-UbE" eventType="touchDown" id="Jj2-hP-WVc"/>
+                                                    <segue destination="IfW-k2-855" kind="show" id="8B1-Zk-cPn"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8O-2f-Qpa">
@@ -224,7 +227,8 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="6"/>
                                                 <connections>
-                                                    <action selector="Pattern1:" destination="RKK-nj-UbE" eventType="touchDown" id="qVy-sa-4CW"/>
+                                                    <action selector="Pattern6:" destination="RKK-nj-UbE" eventType="touchDown" id="NwZ-C4-KMw"/>
+                                                    <segue destination="IfW-k2-855" kind="show" id="C00-gJ-Yj7"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -239,7 +243,8 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="7"/>
                                                 <connections>
-                                                    <action selector="Pattern1:" destination="RKK-nj-UbE" eventType="touchDown" id="6Hc-b8-wev"/>
+                                                    <action selector="Pattern7:" destination="RKK-nj-UbE" eventType="touchDown" id="b2W-LL-PIC"/>
+                                                    <segue destination="IfW-k2-855" kind="show" id="3Ka-Gu-qMM"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GS6-UJ-0nz">
@@ -249,7 +254,8 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="8"/>
                                                 <connections>
-                                                    <action selector="Pattern1:" destination="RKK-nj-UbE" eventType="touchDown" id="dtE-q8-ARr"/>
+                                                    <action selector="Pattern8:" destination="RKK-nj-UbE" eventType="touchDown" id="T98-9V-PfY"/>
+                                                    <segue destination="IfW-k2-855" kind="show" id="6PO-tk-qmB"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2t-IL-ymP">
@@ -259,7 +265,8 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="9"/>
                                                 <connections>
-                                                    <action selector="Pattern1:" destination="RKK-nj-UbE" eventType="touchDown" id="hPm-tB-Z3a"/>
+                                                    <action selector="Pattern9:" destination="RKK-nj-UbE" eventType="touchDown" id="YW0-lk-RXc"/>
+                                                    <segue destination="IfW-k2-855" kind="show" id="Sfy-Pg-ZuK"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -272,9 +279,6 @@
                                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="Pattern1:" destination="RKK-nj-UbE" eventType="touchDown" id="39o-QO-4ns"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4H-36-agc">
                                                 <rect key="frame" x="125.5" y="0.0" width="124" height="137.5"/>
@@ -283,7 +287,8 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="0"/>
                                                 <connections>
-                                                    <action selector="Pattern1:" destination="RKK-nj-UbE" eventType="touchDown" id="aMI-PZ-nr7"/>
+                                                    <action selector="Pattern0:" destination="RKK-nj-UbE" eventType="touchDown" id="unF-r6-L29"/>
+                                                    <segue destination="IfW-k2-855" kind="show" id="QtQ-qJ-4RC"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLE-bB-UtY">
@@ -291,9 +296,6 @@
                                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="Pattern1:" destination="RKK-nj-UbE" eventType="touchDown" id="gAD-OA-bXZ"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -354,4 +356,7 @@
             <point key="canvasLocation" x="2944.8000000000002" y="-917.09145427286364"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="W7a-k1-pci"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -32,12 +32,13 @@ class FirstViewController: UIViewController {
         let pixelBuffer = UIImage(cgImage: inputImage).pixelBuffer()
         let output = try? model.prediction(image: pixelBuffer!)
         let text = output?.classLabel
-        
-        let myURL = "http://maps.apple.com/?q"
         print(text!)
-        if text == "2"{
-            print("aa")
-            if let url = URL(string : "\(myURL)") {
+        var myURL : String?
+        if savedDict[text!] != nil{
+            myURL = urldict[savedDict[text!]!]
+        }
+        if  myURL != nil {
+            if let url = URL(string : "\(myURL!)") {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         }
