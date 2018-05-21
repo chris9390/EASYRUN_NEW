@@ -46,7 +46,6 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
 
         // Configure the cell...
-
         cell.textLabel?.text = items[(indexPath as NSIndexPath).row]
         
         return cell
@@ -76,10 +75,12 @@ class TableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool){
+        print(items.count)
+        print(savedDict.count)
         if items.count != savedDict.count{
             items.removeAll()
             for (key, value) in savedDict{
-                items.append(key + " -> " + value)
+                items.append(key + " ➔ " + value)
             }
             if items.count != 0{
                 let indexPath = IndexPath(row: items.count - 1, section: 0)
@@ -88,6 +89,7 @@ class TableViewController: UITableViewController {
                 tableView.endUpdates()
             }
         }
+        self.tableView.reloadData()
     }
 
     /*
