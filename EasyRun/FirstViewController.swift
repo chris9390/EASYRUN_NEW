@@ -32,6 +32,7 @@ class FirstViewController: UIViewController {
         let pixelBuffer = UIImage(cgImage: inputImage).pixelBuffer()
         let output = try? model.prediction(image: pixelBuffer!)
         let text = output?.classLabel
+        
         print(text!)
         var myURL : String?
         if savedDict[text!] != nil{
