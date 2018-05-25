@@ -16,6 +16,8 @@ var appname : [String] = []
 var urldict : [String:String] = [:]
 
 
+
+
 class SecondTableViewController: UITableViewController {
     
     var ref:DatabaseReference!
@@ -24,28 +26,25 @@ class SecondTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("!!!!")
         // Set the firebase reference
+        
         ref = Database.database().reference()
         
         //Retrieve the urls and listen for changes
         refHandle = ref.child("URLs").observe(.childAdded, with: {(snapshot) in
-            
-            
-            
+           // print("dbcount : ", snapshot.childrenCount)
             let urlscheme = snapshot.value as? String
             let name : String? = snapshot.key
-            
             
             urls.append(urlscheme!)
             appname.append(name!)
             
             urldict[name!] = urlscheme!
-           // print(urldict.count)
     
             
             
-            if urldict.count == 11 {
+            if urldict.count == 294 {
                 if installedapplist.count == 0 {
                     for (key, value) in urldict{
                         if UIApplication.shared.canOpenURL(NSURL(string: value)! as URL){
@@ -96,4 +95,7 @@ class SecondTableViewController: UITableViewController {
         let selectedIndex = installedapplist[tableView.indexPathForSelectedRow!.row]
         contactDetailViewController.urlScheme = selectedIndex
     }
+    
+    
+    
 }
