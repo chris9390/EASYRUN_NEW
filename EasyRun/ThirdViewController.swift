@@ -9,60 +9,43 @@
 import UIKit
 
 var savedDict : [String:String] = [:]
+// savedDict["1"] = urlScheme
+// var urlScheme : String!
 
-class ThirdViewController: UIViewController {
-   
-    var urlScheme : String!
-    
-    @IBAction func Pattern1(_ sender: UIButton) {
-        savedDict["1"] = urlScheme
-    }
-    
-    @IBAction func Pattern2(_ sender: UIButton) {
-        savedDict["2"] = urlScheme
-    }
-    
-    @IBAction func Pattern3(_ sender: UIButton) {
-        savedDict["3"] = urlScheme
-    }
-    
-    @IBAction func Pattern4(_ sender: UIButton) {
-        savedDict["4"] = urlScheme
-    }
-    
-    @IBAction func Pattern5(_ sender: UIButton) {
-        savedDict["5"] = urlScheme
-    }
-    
-    @IBAction func Pattern6(_ sender: UIButton) {
-        savedDict["6"] = urlScheme
-    }
-    
-    @IBAction func Pattern7(_ sender: UIButton) {
-        savedDict["7"] = urlScheme
-    }
-    
-    @IBAction func Pattern8(_ sender: UIButton) {
-        savedDict["8"] = urlScheme
-    }
-    
-    @IBAction func Pattern9(_ sender: UIButton) {
-        savedDict["9"] = urlScheme
-    }
-    
-    @IBAction func Pattern0(_ sender: UIButton) {
-        savedDict["0"] = urlScheme
-    }
+
+class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 1
+    }
+    
+   
+    var urlScheme : String!
+    
+    
+    
+    
+    
+    
+}
+
+struct PatternDataSource{
+    let patterns = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","Angry Face", "Sad Face", "Smile Face"]
+    
     
 }

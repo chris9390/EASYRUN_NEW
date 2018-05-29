@@ -12,8 +12,9 @@
 		D3153E8B20AEE99C00EC918D /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3153E8A20AEE99C00EC918D /* DrawView.swift */; };
 		D3284C6A20A32342000D259B /* SecondTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3284C6920A32342000D259B /* SecondTableViewController.swift */; };
 		D3313B1E207F722D005FD879 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3313B1D207F722D005FD879 /* FirstViewController.swift */; };
-		D37FD3E620B276C1002E32AE /* mnistCNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D37FD3E520B276C1002E32AE /* mnistCNN.mlmodel */; };
+		D347286320BBDAC700B744CA /* test.plist in Resources */ = {isa = PBXBuildFile; fileRef = D347286220BBDAC700B744CA /* test.plist */; };
 		D3B65648209B2DF100D08DF9 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B65647209B2DF100D08DF9 /* ThirdViewController.swift */; };
+		D3BF9A8720BD7FAE001E411F /* mnistCNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D3BF9A8620BD7FAE001E411F /* mnistCNN.mlmodel */; };
 		D3F9E3ED20A02C8500D17028 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F9E3EC20A02C8500D17028 /* TableViewController.swift */; };
 		D3FE78BF207501A50073CD75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE78BE207501A50073CD75 /* AppDelegate.swift */; };
 		D3FE78C4207501A50073CD75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3FE78C2207501A50073CD75 /* Main.storyboard */; };
@@ -29,8 +30,9 @@
 		D3153E8A20AEE99C00EC918D /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		D3284C6920A32342000D259B /* SecondTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTableViewController.swift; sourceTree = "<group>"; };
 		D3313B1D207F722D005FD879 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		D37FD3E520B276C1002E32AE /* mnistCNN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = mnistCNN.mlmodel; sourceTree = "<group>"; };
+		D347286220BBDAC700B744CA /* test.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = test.plist; sourceTree = "<group>"; };
 		D3B65647209B2DF100D08DF9 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		D3BF9A8620BD7FAE001E411F /* mnistCNN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = mnistCNN.mlmodel; path = ../../../Downloads/mnistCNN.mlmodel; sourceTree = "<group>"; };
 		D3F9E3EC20A02C8500D17028 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		D3FE78BB207501A50073CD75 /* EasyRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3FE78BE207501A50073CD75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,7 +94,7 @@
 			children = (
 				D3FE78BE207501A50073CD75 /* AppDelegate.swift */,
 				D3313B1D207F722D005FD879 /* FirstViewController.swift */,
-				D37FD3E520B276C1002E32AE /* mnistCNN.mlmodel */,
+				D3BF9A8620BD7FAE001E411F /* mnistCNN.mlmodel */,
 				D3FE78C2207501A50073CD75 /* Main.storyboard */,
 				D3FE78C5207501A70073CD75 /* Assets.xcassets */,
 				D3FE78C7207501A70073CD75 /* LaunchScreen.storyboard */,
@@ -102,6 +104,7 @@
 				D3284C6920A32342000D259B /* SecondTableViewController.swift */,
 				D3153E8520A96C9800EC918D /* GoogleService-Info.plist */,
 				D3153E8A20AEE99C00EC918D /* DrawView.swift */,
+				D347286220BBDAC700B744CA /* test.plist */,
 			);
 			path = EasyRun;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				D3FE78C9207501A70073CD75 /* LaunchScreen.storyboard in Resources */,
 				D3153E8620A96C9900EC918D /* GoogleService-Info.plist in Resources */,
 				D3FE78C6207501A70073CD75 /* Assets.xcassets in Resources */,
+				D347286320BBDAC700B744CA /* test.plist in Resources */,
 				D3FE78C4207501A50073CD75 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,11 +230,11 @@
 			files = (
 				D3284C6A20A32342000D259B /* SecondTableViewController.swift in Sources */,
 				D3B65648209B2DF100D08DF9 /* ThirdViewController.swift in Sources */,
-				D37FD3E620B276C1002E32AE /* mnistCNN.mlmodel in Sources */,
 				D3153E8B20AEE99C00EC918D /* DrawView.swift in Sources */,
 				D3FE78BF207501A50073CD75 /* AppDelegate.swift in Sources */,
 				D3F9E3ED20A02C8500D17028 /* TableViewController.swift in Sources */,
 				D3313B1E207F722D005FD879 /* FirstViewController.swift in Sources */,
+				D3BF9A8720BD7FAE001E411F /* mnistCNN.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

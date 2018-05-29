@@ -29,8 +29,16 @@ class FirstViewController: UIViewController {
     @IBAction func tappedDetect(_ sender: Any) {
         let context = drawView.getViewContext()
         inputImage = context?.makeImage()
-        let pixelBuffer = UIImage(cgImage: inputImage).pixelBuffer()
+        
+        
+        let rect = drawView.return_max_min()
+        let pic2 = cropImage(UIImage(cgImage: inputImage), toRect: rect!, viewWidth: 28, viewHeight: 28)
+        let pic = resizeImage(image: pic2!, newWidth: 28)
+        let pixelBuffer = pic.pixelBuffer()
         let output = try? model.prediction(image: pixelBuffer!)
+        //let accuracy =  output?.output
+        
+        
         let text = output?.classLabel
         
         print(text!)
@@ -93,4 +101,40 @@ extension UIImage {
         
         return resultPixelBuffer
     }
+}
+
+
+func cropImage(_ inputImage: UIImage, toRect cropRect: CGRect, viewWidth: CGFloat, viewHeight: CGFloat) -> UIImage?
+{
+    //let imageViewScale = max(viewWidth / inputImage.size.width,
+    //                         viewHeight / inputImage.size.height)
+    let imageViewScale = CGFloat(1)
+    print(cropRect)
+    // Scale cropRect to handle images larger than shown-on-screen size
+    let cropZone = CGRect(x:cropRect.origin.x * imageViewScale,
+                          y:cropRect.origin.y * imageViewScale,
+                          width:cropRect.size.width * imageViewScale,
+                          height:cropRect.size.height * imageViewScale)
+    
+    print(cropZone)
+    // Perform cropping in Core Graphics
+    guard let cutImageRef: CGImage = inputImage.cgImage?.cropping(to:cropZone)
+        else {
+            return nil
+    }
+    
+    // Return image to UIImage
+    let croppedImage: UIImage = UIImage(cgImage: cutImageRef)
+    return croppedImage
+}
+
+func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+    
+    let newHeight = newWidth
+    UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+    image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+    let newImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    
+    return newImage!
 }
