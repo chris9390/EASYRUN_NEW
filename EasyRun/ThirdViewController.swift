@@ -9,14 +9,16 @@
 import UIKit
 
 var savedDict : [String:String] = [:]
-// savedDict["1"] = urlScheme
-// var urlScheme : String!
-
 
 class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var MatchedLabel: UILabel!
+    @IBAction func MatchPattern(_ sender: UIButton) {
+        savedDict[choose] = urlScheme
+    }
+    var urlScheme : String!
+    var choose = ""
     
     private let patternDataSource = PatternDataSource()
     
@@ -46,11 +48,17 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
         return patternDataSource.title(for: row)
     }
     
-   
-    var urlScheme : String!
-    
-    
-    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        
+        choose = patternDataSource.title(for: pickerView.selectedRow(inComponent: 0))!
+        print(choose)
+        if savedDict[choose] != nil{
+            MatchedLabel.text = choose + " ➔ " + savedDict[choose]!
+        }
+        else{
+            MatchedLabel.text = "No Matched"
+        }
+    }
     
     
     
