@@ -157,37 +157,38 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="zvR-3s-hLc">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="f6c-0V-QEC">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
-                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="rd8-Dc-dP8">
-                                        <rect key="frame" x="0.0" y="139" width="375" height="137.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="184"/>
                                         <subviews>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUq-rw-jBh">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="137.5"/>
-                                                <color key="backgroundColor" red="0.25870761513492052" green="0.65338527846068906" blue="0.84710104695431476" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="184"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="RKK-nj-UbE" id="y2R-NK-brQ"/>
+                                                    <outlet property="delegate" destination="RKK-nj-UbE" id="22f-EW-SKN"/>
+                                                </connections>
                                             </pickerView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="8XV-3j-33a">
-                                        <rect key="frame" x="0.0" y="277.5" width="375" height="138"/>
+                                        <rect key="frame" x="0.0" y="185" width="375" height="184"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tD-Mt-D0q">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
-                                                <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="184"/>
+                                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="39"/>
-                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.5307550140248446" green="0.45922687521371885" blue="0.81238102791878175" alpha="0.2635648544520548" colorSpace="custom" customColorSpace="displayP3"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Pyc-8e-Rhe">
-                                        <rect key="frame" x="0.0" y="416.5" width="375" height="137.5"/>
+                                        <rect key="frame" x="0.0" y="370" width="375" height="184"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQk-8T-3NM">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="137.5"/>
-                                                <color key="backgroundColor" red="0.34847358800169914" green="0.68663741650064414" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="184"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                 <state key="normal" title="Matching">
                                                     <color key="titleColor" red="1" green="0.2327583473" blue="0.32833196990000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -211,6 +212,10 @@
                         <viewLayoutGuide key="safeArea" id="f0b-cL-J9V"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Register Pattern!" id="UEJ-6c-haq"/>
+                    <connections>
+                        <outlet property="MatchedLabel" destination="5tD-Mt-D0q" id="wvW-vt-MOK"/>
+                        <outlet property="pickerView" destination="IUq-rw-jBh" id="DYM-Yi-X5G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQN-D1-z6a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

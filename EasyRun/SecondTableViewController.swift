@@ -47,7 +47,7 @@ class SecondTableViewController: UITableViewController {
     
             
             
-            if urldict.count == 4 {
+            if urldict.count == 7{
                 if installedapplist.count == 0 {
                     for (key, value) in urldict{
                         if UIApplication.shared.canOpenURL(NSURL(string: value)! as URL){

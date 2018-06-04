@@ -15,6 +15,13 @@ var savedDict : [String:String] = [:]
 
 class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var MatchedLabel: UILabel!
+    
+    private let patternDataSource = PatternDataSource()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +38,12 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 1
+        return patternDataSource.patterns.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row : Int, forComponent component: Int) -> String?{
+        
+        return patternDataSource.title(for: row)
     }
     
    
@@ -47,5 +59,8 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
 struct PatternDataSource{
     let patterns = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","Angry Face", "Sad Face", "Smile Face"]
     
-    
+    func title(for index: Int) -> String? {
+        guard index < patterns.count else{ return nil }
+        return String(patterns[index])
+    }
 }
