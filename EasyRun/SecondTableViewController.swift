@@ -47,11 +47,17 @@ class SecondTableViewController: UITableViewController {
     
             
             
-            if urldict.count == 114{
+            if urldict.count == 112{
                 if installedapplist.count == 0 {
                     for (key, value) in urldict{
-                        if UIApplication.shared.canOpenURL(NSURL(string: value)! as URL){
+                        if NSURL(string: value) == nil {
+                            continue
+                        }
+                        else if UIApplication.shared.canOpenURL(NSURL(string: value)! as URL){
                             installedapplist.append(key)
+                        }
+                        else {
+                            continue
                         }
                     }
                     

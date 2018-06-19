@@ -75,8 +75,7 @@ class TableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool){
-        //print(items.count)
-        //print(savedDict.count)
+
         if items.count != savedDict.count{
             items.removeAll()
             for (key, value) in savedDict{
