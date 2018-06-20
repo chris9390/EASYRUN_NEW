@@ -15,6 +15,8 @@ class FirstViewController: UIViewController {
     
     let model = mnistCNN()
     var inputImage: CGImage!
+    var cnt = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,9 @@ class FirstViewController: UIViewController {
     @IBAction func tappedClear(_ sender: Any) {
         drawView.lines = []
         drawView.setNeedsDisplay()
+        
+        //0620 추가
+        drawView.initialize_var()
     }
     
     @IBAction func tappedDetect(_ sender: Any) {
@@ -36,10 +41,14 @@ class FirstViewController: UIViewController {
         let pic = resizeImage(image: pic2!, newWidth: 28)
         let pixelBuffer = pic.pixelBuffer()
         let output = try? model.prediction(image: pixelBuffer!)
-        //let accuracy =  output?.output
-        
-        
+        let accuracy =  output?.output          //버튼을 없애기 위한 정확도
         let text = output?.classLabel
+        
+        
+        for i in (accuracy?.keys)!{
+            print(i,accuracy![i])
+        }
+ 
         
         print(text!)
         var myURL : String?
@@ -102,6 +111,9 @@ extension UIImage {
         return resultPixelBuffer
     }
 }
+
+
+
 
 
 func cropImage(_ inputImage: UIImage, toRect cropRect: CGRect, viewWidth: CGFloat, viewHeight: CGFloat) -> UIImage?
