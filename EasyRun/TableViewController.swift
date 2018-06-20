@@ -22,8 +22,22 @@ class TableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
+        
     }
 
+    required init?(coder aDecoder: NSCoder) {
+        
+        super.init(coder: aDecoder)
+        
+        if items.count == savedDict.count{
+            loadChecklistItems()
+        }
+        
+        print("Documents folder is \(documentsDirectory())")
+        print("Data file path is \(dataFilePath())")
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -71,15 +85,17 @@ class TableViewController: UITableViewController {
             savedDict.removeValue(forKey: removeitem)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
+        saveChecklistItems()
     }
     
     override func viewWillAppear(_ animated: Bool){
-
         if items.count != savedDict.count{
             items.removeAll()
             for (key, value) in savedDict{
                 items.append(key + " ➔ " + value)
+                print(key)
+                print(value)
             }
             if items.count != 0{
                 let indexPath = IndexPath(row: items.count - 1, section: 0)
@@ -89,8 +105,9 @@ class TableViewController: UITableViewController {
             }
         }
         self.tableView.reloadData()
+        saveChecklistItems()
     }
-
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -116,4 +133,34 @@ class TableViewController: UITableViewController {
     }
     */
 
+}
+
+// Find Persist directory
+func documentsDirectory() -> URL {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
+}
+
+// Adding Persist file
+func dataFilePath() -> URL {
+    return documentsDirectory().appendingPathComponent("Checklists.plist")
+}
+
+// File Saving
+func saveChecklistItems() {
+    let data = NSMutableData()
+    let archiver = NSKeyedArchiver(forWritingWith: data)
+    archiver.encode(savedDict, forKey: "ChecklistItems")
+    archiver.finishEncoding()
+    data.write(to: dataFilePath(), atomically: true)
+}
+
+// File Loading
+func loadChecklistItems() {
+    let path = dataFilePath()
+    if let data = try? Data(contentsOf: path) {
+        let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+        savedDict = unarchiver.decodeObject(forKey: "ChecklistItems") as! [String:String]
+        unarchiver.finishDecoding()
+    }
 }

@@ -44,7 +44,7 @@ class SecondTableViewController: UITableViewController {
             appname.append(name!)
             
             urldict[name!] = urlscheme!
-    
+            saveChecklistItems2()
             
             
             if urldict.count == 112{
@@ -107,4 +107,34 @@ class SecondTableViewController: UITableViewController {
     
     
     
+}
+
+// Find Persist directory
+func documentsDirectory2() -> URL {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
+}
+
+// Adding Persist file
+func dataFilePath2() -> URL {
+    return documentsDirectory2().appendingPathComponent("urlscheme.plist")
+}
+
+// File Saving
+func saveChecklistItems2() {
+    let data = NSMutableData()
+    let archiver = NSKeyedArchiver(forWritingWith: data)
+    archiver.encode(urldict, forKey: "ChecklistItems2")
+    archiver.finishEncoding()
+    data.write(to: dataFilePath2(), atomically: true)
+}
+
+// File Loading
+func loadChecklistItems2() {
+    let path = dataFilePath2()
+    if let data = try? Data(contentsOf: path) {
+        let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+        urldict = unarchiver.decodeObject(forKey: "ChecklistItems2") as! [String:String]
+        unarchiver.finishDecoding()
+    }
 }

@@ -20,6 +20,11 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if items.count == savedDict.count{
+            loadChecklistItems()
+        }
+        loadChecklistItems2()
     }
     
     @IBAction func tappedClear(_ sender: Any) {
