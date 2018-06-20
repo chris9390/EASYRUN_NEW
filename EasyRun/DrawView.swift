@@ -6,16 +6,19 @@
 //  Copyright © 2018년 sgcs. All rights reserved.
 //
 import UIKit
+import CoreML
+
 
 /**
  This class is used to handle the drawing in the DigitView so we can get user input digit,
  This class doesn't really have an MPS or Metal going in it, it is just used to get user input
  */
 class DrawView: UIView {
-    
+    let model = mnistCNN()
+    var inputImage: CGImage!
     // some parameters of how thick a line to draw 15 seems to work
     // and we have white drawings on black background just like MNIST needs its input
-    var linewidth = CGFloat(15) { didSet { setNeedsDisplay() } }
+    var linewidth = CGFloat(10) { didSet { setNeedsDisplay() } }
     var color = UIColor.white { didSet { setNeedsDisplay() } }
     
     // we will keep touches made by user in view in these as a record so we can draw them.
@@ -61,6 +64,10 @@ class DrawView: UIView {
         lastPoint = newPoint
         // make a draw call
         setNeedsDisplay()
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        predict()
     }
     
     override func draw(_ rect: CGRect) {
@@ -133,6 +140,43 @@ class DrawView: UIView {
 
         let rect = CGRect(x: min_x - max_size/8, y: min_y - max_size/8, width: max_x - min_x + max_size/4, height: max_y - min_y + max_size/4)
         return rect
+    }
+    
+    
+    func predict() {
+        let context = self.getViewContext()
+        inputImage = context?.makeImage()
+        
+        
+        let rect = self.return_max_min()
+        let pic2 = cropImage(UIImage(cgImage: inputImage), toRect: rect!, viewWidth: 28, viewHeight: 28)
+        let pic = resizeImage(image: pic2!, newWidth: 28)
+        let pixelBuffer = pic.pixelBuffer()
+        let output = try? model.prediction(image: pixelBuffer!)
+        let accuracy =  output?.output          //버튼을 없애기 위한 정확도
+        let text = output?.classLabel
+        
+        /*//정확도 확인
+        for i in (accuracy?.keys)!{
+            print(i,accuracy![i])
+        }
+        */
+        
+        
+        if accuracy![text!]! > 0.99 {
+            var myURL : String?
+            if savedDict[text!] != nil{
+                myURL = urldict[savedDict[text!]!]
+            }
+            if  myURL != nil {
+                if let url = URL(string : "\(myURL!)") {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }
+            print(text!)
+            
+            
+        }
     }
     
     

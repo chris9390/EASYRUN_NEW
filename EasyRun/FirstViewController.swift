@@ -7,14 +7,15 @@
 //
 
 import UIKit
-import CoreML
 
 class FirstViewController: UIViewController {
     
     @IBOutlet weak var drawView: DrawView!
     
-    let model = mnistCNN()
-    var inputImage: CGImage!
+    
+    //var inputImage: CGImage!
+    var cnt = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,34 +25,11 @@ class FirstViewController: UIViewController {
     @IBAction func tappedClear(_ sender: Any) {
         drawView.lines = []
         drawView.setNeedsDisplay()
+        
+        //0620 추가
+        drawView.initialize_var()
     }
-    
-    @IBAction func tappedDetect(_ sender: Any) {
-        let context = drawView.getViewContext()
-        inputImage = context?.makeImage()
-        
-        
-        let rect = drawView.return_max_min()
-        let pic2 = cropImage(UIImage(cgImage: inputImage), toRect: rect!, viewWidth: 28, viewHeight: 28)
-        let pic = resizeImage(image: pic2!, newWidth: 28)
-        let pixelBuffer = pic.pixelBuffer()
-        let output = try? model.prediction(image: pixelBuffer!)
-        //let accuracy =  output?.output
-        
-        
-        let text = output?.classLabel
-        
-        print(text!)
-        var myURL : String?
-        if savedDict[text!] != nil{
-            myURL = urldict[savedDict[text!]!]
-        }
-        if  myURL != nil {
-            if let url = URL(string : "\(myURL!)") {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
-        }
-    }
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -104,19 +82,22 @@ extension UIImage {
 }
 
 
+
+
+
 func cropImage(_ inputImage: UIImage, toRect cropRect: CGRect, viewWidth: CGFloat, viewHeight: CGFloat) -> UIImage?
 {
     //let imageViewScale = max(viewWidth / inputImage.size.width,
     //                         viewHeight / inputImage.size.height)
     let imageViewScale = CGFloat(1)
-    print(cropRect)
+    //print(cropRect)
     // Scale cropRect to handle images larger than shown-on-screen size
     let cropZone = CGRect(x:cropRect.origin.x * imageViewScale,
                           y:cropRect.origin.y * imageViewScale,
                           width:cropRect.size.width * imageViewScale,
                           height:cropRect.size.height * imageViewScale)
     
-    print(cropZone)
+    //print(cropZone)
     // Perform cropping in Core Graphics
     guard let cutImageRef: CGImage = inputImage.cgImage?.cropping(to:cropZone)
         else {
