@@ -29,7 +29,7 @@ class TableViewController: UITableViewController {
         
         super.init(coder: aDecoder)
         
-        if items.count == savedDict.count{
+        if items.count == savedDict.count && checkChange == 0{
             loadChecklistItems()
         }
         
@@ -90,12 +90,10 @@ class TableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool){
-        if items.count != savedDict.count{
+        if items.count != savedDict.count || checkChange == 1{
             items.removeAll()
             for (key, value) in savedDict{
                 items.append(key + " ➔ " + value)
-                print(key)
-                print(value)
             }
             if items.count != 0{
                 let indexPath = IndexPath(row: items.count - 1, section: 0)
@@ -106,6 +104,7 @@ class TableViewController: UITableViewController {
         }
         self.tableView.reloadData()
         saveChecklistItems()
+        checkChange = 0
     }
     
     /*

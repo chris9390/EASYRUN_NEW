@@ -21,7 +21,7 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        if items.count == savedDict.count{
+        if items.count == savedDict.count && checkChange == 0{
             loadChecklistItems()
         }
         loadChecklistItems2()

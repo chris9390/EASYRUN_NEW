@@ -10,6 +10,8 @@ import UIKit
 
 var savedDict : [String:String] = [:]
 var images = ["0.png", "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png", "a.png", "b.png", "c.png", "d.png", "e.png", "f.png", "Smile Face.png", "Sad Face.png", "Angry Face.png", "x.png"]
+var checkChange = 0
+var numberOfDict = 0
 
 class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     
@@ -24,8 +26,14 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
             let alertController = UIAlertController(title: "Do you want to overwrite?", message: nil, preferredStyle: .alert)
             
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: {(action) in alertController.dismiss(animated: true, completion: nil)
+                checkChange = 0
+                numberOfDict = savedDict.count
                 
                 savedDict[self.choose] = self.urlScheme
+                
+                if(savedDict.count == numberOfDict){
+                    checkChange = 1
+                }
                 self.performSegue(withIdentifier: "segue1", sender: nil)
             }))
             
