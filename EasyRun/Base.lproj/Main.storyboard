@@ -28,16 +28,6 @@
                                 <rect key="frame" x="0.0" y="56" width="375" height="462"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiD-dv-3Zq">
-                                <rect key="frame" x="273" y="570" width="86" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Detect">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="tappedDetect:" destination="dbc-dq-IPg" eventType="touchUpInside" id="jfx-Yw-IVH"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCm-JP-V4j">
                                 <rect key="frame" x="16" y="570" width="69" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -51,15 +41,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="169-WW-rtl" firstAttribute="bottom" secondItem="uiD-dv-3Zq" secondAttribute="bottom" id="3Sd-HM-qUh"/>
                             <constraint firstItem="ggH-us-qVv" firstAttribute="top" secondItem="169-WW-rtl" secondAttribute="top" id="6VX-w7-Wxd"/>
                             <constraint firstItem="3eZ-TT-67V" firstAttribute="top" secondItem="ggH-us-qVv" secondAttribute="bottom" id="ENE-y4-Fs2"/>
                             <constraint firstItem="169-WW-rtl" firstAttribute="trailing" secondItem="ggH-us-qVv" secondAttribute="trailing" constant="5" id="EzP-Ty-x2i"/>
                             <constraint firstItem="169-WW-rtl" firstAttribute="trailing" secondItem="MCm-JP-V4j" secondAttribute="trailing" constant="290" id="G1K-8Y-fLo"/>
                             <constraint firstItem="MCm-JP-V4j" firstAttribute="leading" secondItem="169-WW-rtl" secondAttribute="leading" constant="16" id="Gsu-rM-gpS"/>
-                            <constraint firstItem="169-WW-rtl" firstAttribute="trailing" secondItem="uiD-dv-3Zq" secondAttribute="trailing" constant="16" id="HI5-9V-HEZ"/>
                             <constraint firstItem="3eZ-TT-67V" firstAttribute="leading" secondItem="169-WW-rtl" secondAttribute="leading" id="Jbx-Kf-As0"/>
-                            <constraint firstItem="uiD-dv-3Zq" firstAttribute="leading" secondItem="169-WW-rtl" secondAttribute="leading" constant="273" id="fwf-7A-kli"/>
                             <constraint firstItem="169-WW-rtl" firstAttribute="bottom" secondItem="MCm-JP-V4j" secondAttribute="bottom" id="hwv-yr-ciG"/>
                             <constraint firstItem="ggH-us-qVv" firstAttribute="leading" secondItem="169-WW-rtl" secondAttribute="leading" constant="5" id="leU-sH-pCg"/>
                             <constraint firstItem="169-WW-rtl" firstAttribute="trailing" secondItem="3eZ-TT-67V" secondAttribute="trailing" id="qKB-cm-wlg"/>
