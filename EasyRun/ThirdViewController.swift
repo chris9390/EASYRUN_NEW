@@ -9,16 +9,42 @@
 import UIKit
 
 var savedDict : [String:String] = [:]
+var images = ["0.png", "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png", "a.png", "b.png", "c.png", "d.png", "e.png", "f.png", "Smile Face.png", "Sad Face.png", "Angry Face.png", "x.png"]
 
 class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     
     var phonenumTextField: UITextField?
     
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var MatchedLabel: UILabel!
     @IBAction func MatchPattern(_ sender: UIButton) {
-        savedDict[choose] = urlScheme
+        
+        if MatchedLabel.text != "Not Matched" {
+            let alertController = UIAlertController(title: "Do you want to overwrite?", message: nil, preferredStyle: .alert)
+            
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: {(action) in alertController.dismiss(animated: true, completion: nil)
+                
+                savedDict[self.choose] = self.urlScheme
+                self.performSegue(withIdentifier: "segue1", sender: nil)
+            }))
+            
+            alertController.addAction(UIAlertAction(title: "CANCEL", style: .default, handler: {(action) in alertController.dismiss(animated: true, completion: nil)
+            }))
+            
+            
+            self.present(alertController, animated: true)
+        }
+        
+        else {
+                savedDict[choose] = urlScheme
+        }
+        
+        
+        //savedDict[choose] = urlScheme
     }
+    
+    
     var urlScheme : String!
     var choose = ""
     
@@ -48,7 +74,7 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
             alertController.addTextField(configurationHandler: phonenumTextField)
             
             let okAction = UIAlertAction(title: "OK", style: .default, handler: self.okHandler)
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let cancelAction = UIAlertAction(title: "CANCEL", style: .cancel, handler: nil)
             alertController.addAction(okAction)
             alertController.addAction(cancelAction)
             
@@ -105,14 +131,16 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        
+    
         choose = patternDataSource.title(for: pickerView.selectedRow(inComponent: 0))!
         print(choose)
+        imageView.image = UIImage(named: choose + ".png")
         if savedDict[choose] != nil{
-            MatchedLabel.text = choose + " ➔ " + savedDict[choose]!
+            //MatchedLabel.text = choose + " ➔ " + savedDict[choose]!
+            MatchedLabel.text = savedDict[choose]!
         }
         else{
-            MatchedLabel.text = "No Matched"
+            MatchedLabel.text = "Not Matched"
         }
     }
     
@@ -121,7 +149,8 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
 }
 
 struct PatternDataSource{
-    let patterns = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","Angry Face", "Sad Face", "Smile Face"]
+    let patterns = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f","Angry Face",
+        "Sad Face", "Smile Face", "x"]
     
     func title(for index: Int) -> String? {
         guard index < patterns.count else{ return nil }

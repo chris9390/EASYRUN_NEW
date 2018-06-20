@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14111" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="88w-DZ-GRB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="88w-DZ-GRB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -97,7 +98,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wR2-pI-UQn" id="bdR-IK-Cp4">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="RKK-nj-UbE" kind="show" id="Nf7-tM-lV3"/>
@@ -129,7 +130,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r2R-2H-9hM" id="0kM-vA-kTT">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -159,56 +160,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="zvR-3s-hLc">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="zvR-3s-hLc">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="rd8-Dc-dP8">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUq-rw-jBh">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="RKK-nj-UbE" id="y2R-NK-brQ"/>
+                                            <outlet property="delegate" destination="RKK-nj-UbE" id="22f-EW-SKN"/>
+                                        </connections>
+                                    </pickerView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mDF-3l-NLK">
+                                        <rect key="frame" x="0.0" y="217" width="375" height="286"/>
                                         <subviews>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUq-rw-jBh">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="RKK-nj-UbE" id="y2R-NK-brQ"/>
-                                                    <outlet property="delegate" destination="RKK-nj-UbE" id="22f-EW-SKN"/>
-                                                </connections>
-                                            </pickerView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="8XV-3j-33a">
-                                        <rect key="frame" x="0.0" y="216" width="375" height="215"/>
-                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="DiR-MQ-Z41">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="143"/>
+                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Matched" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tD-Mt-D0q">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
+                                                <rect key="frame" x="0.0" y="143" width="375" height="143"/>
                                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="39"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.5307550140248446" green="0.45922687521371885" blue="0.81238102791878175" alpha="0.2635648544520548" colorSpace="custom" customColorSpace="displayP3"/>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Pyc-8e-Rhe">
-                                        <rect key="frame" x="0.0" y="432" width="375" height="215"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQk-8T-3NM">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                <state key="normal" title="Matching">
-                                                    <color key="titleColor" red="1" green="0.2327583473" blue="0.32833196990000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" red="0.80335897840000003" green="0.31107350969999997" blue="0.71211734280000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="MatchPattern:" destination="RKK-nj-UbE" eventType="touchDown" id="Kaz-Kh-lz1"/>
-                                                    <segue destination="IfW-k2-855" kind="show" id="8Ux-WX-NB0"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQk-8T-3NM">
+                                        <rect key="frame" x="0.0" y="504" width="375" height="143"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <state key="normal" title="Matching">
+                                            <color key="titleColor" red="1" green="0.2327583473" blue="0.32833196990000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.80335897840000003" green="0.31107350969999997" blue="0.71211734280000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="MatchPattern:" destination="RKK-nj-UbE" eventType="touchDown" id="Kaz-Kh-lz1"/>
+                                            <segue destination="IfW-k2-855" kind="show" identifier="segue1" id="8Ux-WX-NB0"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="mDF-3l-NLK" firstAttribute="height" secondItem="ZQk-8T-3NM" secondAttribute="height" multiplier="2" id="Ydr-oB-Xaq"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -223,6 +219,7 @@
                     <tabBarItem key="tabBarItem" title="Register Pattern!" id="UEJ-6c-haq"/>
                     <connections>
                         <outlet property="MatchedLabel" destination="5tD-Mt-D0q" id="wvW-vt-MOK"/>
+                        <outlet property="imageView" destination="DiR-MQ-Z41" id="EPs-xM-xlF"/>
                         <outlet property="pickerView" destination="IUq-rw-jBh" id="DYM-Yi-X5G"/>
                     </connections>
                 </viewController>
@@ -269,7 +266,10 @@
             <point key="canvasLocation" x="2944.8000000000002" y="-917.09145427286364"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="0" width="750" height="324"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="W7a-k1-pci"/>
+        <segue reference="8Ux-WX-NB0"/>
     </inferredMetricsTieBreakers>
 </document>

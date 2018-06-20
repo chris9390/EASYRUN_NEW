@@ -95,7 +95,7 @@ class SecondTableViewController: UITableViewController {
         // Configure the cell...
         
         cell.textLabel?.text = installedapplist[(indexPath as NSIndexPath).row]
-        
+        cell.textLabel?.textColor = UIColor.white
         return cell
     }
     

@@ -61,7 +61,7 @@ class TableViewController: UITableViewController {
 
         // Configure the cell...
         cell.textLabel?.text = items[(indexPath as NSIndexPath).row]
-        
+        cell.textLabel?.textColor = UIColor.white
         return cell
     }
     
