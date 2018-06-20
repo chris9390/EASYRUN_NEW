@@ -163,7 +163,7 @@ class DrawView: UIView {
         */
         
         
-        if accuracy![text!]! > 0.95 {
+        if accuracy![text!]! > 0.99 {
             var myURL : String?
             if savedDict[text!] != nil{
                 myURL = urldict[savedDict[text!]!]
