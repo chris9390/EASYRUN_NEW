@@ -63,9 +63,13 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
     
     override func viewDidLoad() {
         print(urlScheme)
-        pickerView.layer.borderWidth = 0.5
-        LabelView.layer.borderWidth = 0.5
-        LabelView.layer.borderColor = UIColor.black.cgColor
+        
+        imageView.layer.borderWidth = 1.5
+        imageView.layer.borderColor = UIColor.white.cgColor
+        pickerView.layer.borderWidth = 1.5
+        pickerView.layer.borderColor = UIColor.white.cgColor
+        LabelView.layer.borderWidth = 1.5
+        LabelView.layer.borderColor = UIColor.white.cgColor
         if urlScheme == "Messages " {
             let alertController = UIAlertController(title: "Write phone number.", message: nil, preferredStyle: .alert)
             
@@ -136,14 +140,20 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return patternDataSource.patterns.count
     }
-    
+    /*
     func pickerView(_ pickerView: UIPickerView, titleForRow row : Int, forComponent component: Int) -> String?{
         
         return patternDataSource.title(for: row)
     }
+    */
+    //0621 민석 추가
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        
+        return NSAttributedString(string: patternDataSource.title(for: row)!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+    }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+
         choose = patternDataSource.title(for: pickerView.selectedRow(inComponent: 0))!
         print(choose)
         imageView.image = UIImage(named: choose + ".png")

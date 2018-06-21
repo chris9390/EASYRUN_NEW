@@ -21,12 +21,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggH-us-qVv">
-                                <rect key="frame" x="5" y="20" width="365" height="34"/>
+                                <rect key="frame" x="5" y="28" width="365" height="41"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="EASY RUN!">
+                                    <fragment content="PLEASE   DRAW">
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="30" name="MarkerFelt-Thin"/>
+                                            <font key="NSFont" size="32" name="BradleyHandITCTT-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -36,29 +36,27 @@
                                 <size key="shadowOffset" width="5" height="1"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eZ-TT-67V" customClass="DrawView" customModule="EasyRun" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="54" width="375" height="464"/>
+                                <rect key="frame" x="0.0" y="75" width="375" height="443"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCm-JP-V4j">
-                                <rect key="frame" x="137" y="538" width="101" height="54"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="38"/>
-                                <size key="titleShadowOffset" width="3" height="0.0"/>
+                                <rect key="frame" x="137" y="532" width="101" height="60"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="38"/>
                                 <state key="normal" title="Clear">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="tappedClear:" destination="dbc-dq-IPg" eventType="touchDown" id="Niu-CB-tDX"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.04450380802154541" green="0.01067073829472065" blue="0.0069219823926687241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ggH-us-qVv" firstAttribute="top" secondItem="169-WW-rtl" secondAttribute="top" id="6VX-w7-Wxd"/>
-                            <constraint firstItem="3eZ-TT-67V" firstAttribute="top" secondItem="ggH-us-qVv" secondAttribute="bottom" id="ENE-y4-Fs2"/>
+                            <constraint firstItem="3eZ-TT-67V" firstAttribute="top" secondItem="ggH-us-qVv" secondAttribute="bottom" constant="6" id="6en-Dz-Vat"/>
                             <constraint firstItem="169-WW-rtl" firstAttribute="trailing" secondItem="ggH-us-qVv" secondAttribute="trailing" constant="5" id="EzP-Ty-x2i"/>
                             <constraint firstItem="169-WW-rtl" firstAttribute="trailing" secondItem="MCm-JP-V4j" secondAttribute="trailing" constant="137" id="G4r-if-SK0"/>
                             <constraint firstItem="3eZ-TT-67V" firstAttribute="leading" secondItem="169-WW-rtl" secondAttribute="leading" id="Jbx-Kf-As0"/>
+                            <constraint firstItem="ggH-us-qVv" firstAttribute="top" secondItem="169-WW-rtl" secondAttribute="top" constant="8" id="Xra-Nb-bOb"/>
                             <constraint firstItem="169-WW-rtl" firstAttribute="bottom" secondItem="MCm-JP-V4j" secondAttribute="bottom" constant="26" id="aXQ-F6-b1P"/>
                             <constraint firstItem="ggH-us-qVv" firstAttribute="leading" secondItem="169-WW-rtl" secondAttribute="leading" constant="5" id="leU-sH-pCg"/>
                             <constraint firstItem="MCm-JP-V4j" firstAttribute="leading" secondItem="169-WW-rtl" secondAttribute="leading" constant="137" id="ntU-Ap-MUe"/>
@@ -174,7 +172,8 @@
                                         <subviews>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUq-rw-jBh">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="204"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.018837418407201767" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" red="0.99593967199325562" green="0.99617451429367065" blue="0.99164897203445435" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="RKK-nj-UbE" id="y2R-NK-brQ"/>
                                                     <outlet property="delegate" destination="RKK-nj-UbE" id="22f-EW-SKN"/>
@@ -185,13 +184,12 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="i8f-Qo-ggc">
                                         <rect key="frame" x="0.0" y="394" width="343" height="100"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tD-Mt-D0q">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X (Not Matched)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tD-Mt-D0q">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
-                                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.026802429929375648" green="0.0070626619271934032" blue="0.024774033576250076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="28"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
-                                                <color key="shadowColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <size key="shadowOffset" width="3" height="-1"/>
                                             </label>
                                         </subviews>
@@ -202,12 +200,11 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yiO-tG-yDU">
                                         <rect key="frame" x="0.0" y="514" width="343" height="33"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQk-8T-3NM">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="33"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQk-8T-3NM">
+                                                <rect key="frame" x="85" y="0.0" width="173" height="33"/>
+                                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="40"/>
                                                 <size key="titleShadowOffset" width="11" height="0.0"/>
-                                                <state key="normal" title="Matching" backgroundImage="background_1">
+                                                <state key="normal" title="Matching">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <state key="highlighted">
@@ -226,7 +223,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.04450380802154541" green="0.01067073829472065" blue="0.0069219823926687241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cYP-ec-H27" firstAttribute="top" secondItem="f0b-cL-J9V" secondAttribute="top" constant="50" id="5dY-gh-1d9"/>
                             <constraint firstAttribute="trailing" secondItem="cYP-ec-H27" secondAttribute="trailing" constant="16" id="HCw-tx-CnY"/>
@@ -237,6 +234,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Register Pattern!" id="UEJ-6c-haq"/>
                     <connections>
+                        <outlet property="ImageView" destination="DiR-MQ-Z41" id="M2B-aK-sSc"/>
                         <outlet property="LabelView" destination="5tD-Mt-D0q" id="Vls-w5-PsW"/>
                         <outlet property="MatchedLabel" destination="5tD-Mt-D0q" id="wvW-vt-MOK"/>
                         <outlet property="imageView" destination="DiR-MQ-Z41" id="EPs-xM-xlF"/>
@@ -288,9 +286,9 @@
     </scenes>
     <resources>
         <image name="0" width="750" height="324"/>
-        <image name="background_1" width="800" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="JXw-jq-I5G"/>
         <segue reference="8Ux-WX-NB0"/>
     </inferredMetricsTieBreakers>
 </document>

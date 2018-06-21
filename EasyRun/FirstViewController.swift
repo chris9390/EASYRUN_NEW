@@ -19,7 +19,9 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        
+
+        drawView.layer.borderWidth = 5.0
+        drawView.layer.borderColor = UIColor.white.cgColor
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

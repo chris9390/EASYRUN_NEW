@@ -67,7 +67,9 @@ class DrawView: UIView {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        predict()
+        if max_x - min_x != 0 || max_y - min_y != 0 {
+            predict()
+        }
     }
     
     override func draw(_ rect: CGRect) {
@@ -178,6 +180,7 @@ class DrawView: UIView {
             
         }
     }
+    
     
     
 }
