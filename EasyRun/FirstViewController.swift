@@ -15,11 +15,24 @@ class FirstViewController: UIViewController {
     
     //var inputImage: CGImage!
     var cnt = 0
-    
+    var flag = 0
     
     override func viewDidLoad() {
         
-
+        for member in installedapplist{
+            if member == "URL" {
+                flag = 1
+            }
+        }
+        
+        if flag == 0 {
+            installedapplist.append("URL")
+        }
+        
+        
+        print(savedDict.count)
+        print(items.count)
+        print(savedDict)
         drawView.layer.borderWidth = 5.0
         drawView.layer.borderColor = UIColor.white.cgColor
         
@@ -29,7 +42,9 @@ class FirstViewController: UIViewController {
         if items.count == savedDict.count && checkChange == 0{
             loadChecklistItems()
         }
+        print(savedDict.count)
         loadChecklistItems2()
+        loadChecklistItems3()
     }
     
     @IBAction func tappedClear(_ sender: Any) {

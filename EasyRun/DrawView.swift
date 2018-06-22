@@ -165,12 +165,15 @@ class DrawView: UIView {
         */
         
         
-        if accuracy![text!]! > 0.995 {
+        if accuracy![text!]! > 0.995  {
             var myURL : String?
             if savedDict[text!] != nil{
+                print("a")
                 myURL = urldict[savedDict[text!]!]
+                print(myURL)
             }
             if  myURL != nil {
+                //////
                 if let url = URL(string : "\(myURL!)") {
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }

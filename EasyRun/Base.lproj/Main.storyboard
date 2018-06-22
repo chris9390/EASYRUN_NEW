@@ -102,6 +102,15 @@
                             <outlet property="delegate" destination="iAy-6t-mtI" id="QCy-zc-aN7"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="App List" id="KQb-90-7sZ" userLabel="App List">
+                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="2sH-Jy-wHx" userLabel="Refresh">
+                            <connections>
+                                <action selector="refreshButton:" destination="iAy-6t-mtI" id="dig-G6-eoJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="unu-33-YUr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -153,7 +162,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cYP-ec-H27">
-                                <rect key="frame" x="16" y="70" width="343" height="547"/>
+                                <rect key="frame" x="16" y="70" width="343" height="503"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yYf-CY-Jay">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="150"/>
@@ -168,10 +177,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3Bg-44-xNf">
-                                        <rect key="frame" x="0.0" y="170" width="343" height="204"/>
+                                        <rect key="frame" x="0.0" y="170" width="343" height="160"/>
                                         <subviews>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUq-rw-jBh">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="204"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="160"/>
                                                 <color key="backgroundColor" red="0.018837418407201767" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" red="0.99593967199325562" green="0.99617451429367065" blue="0.99164897203445435" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
@@ -182,7 +191,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="i8f-Qo-ggc">
-                                        <rect key="frame" x="0.0" y="394" width="343" height="100"/>
+                                        <rect key="frame" x="0.0" y="350" width="343" height="100"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X (Not Matched)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tD-Mt-D0q">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="100"/>
@@ -198,7 +207,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yiO-tG-yDU">
-                                        <rect key="frame" x="0.0" y="514" width="343" height="33"/>
+                                        <rect key="frame" x="0.0" y="470" width="343" height="33"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQk-8T-3NM">
                                                 <rect key="frame" x="85" y="0.0" width="173" height="33"/>

@@ -19,7 +19,13 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
     
     @IBOutlet weak var LabelView: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var pickerView: UIPickerView!{
+        didSet{
+            //pickerView.selectedRow(inComponent: 0)
+            
+            
+        }
+    }
     @IBOutlet weak var MatchedLabel: UILabel!
     @IBAction func MatchPattern(_ sender: UIButton) {
         
@@ -48,9 +54,6 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
         else {
                 savedDict[choose] = urlScheme
         }
-        
-        
-        //savedDict[choose] = urlScheme
     }
     
     
@@ -62,7 +65,15 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
     
     
     override func viewDidLoad() {
-        print(urlScheme)
+        
+        /*
+        var itemAt: String?
+        var defaultRowIndex = patternDataSource.patterns.index(of: itemAt!)
+        if defaultRowIndex == nil {
+            defaultRowIndex = 0
+        }
+        pickerView.selectRow(defaultRowIndex!, inComponent: 0, animated: true)
+        */
         
         imageView.layer.borderWidth = 1.5
         imageView.layer.borderColor = UIColor.white.cgColor
@@ -86,6 +97,19 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
             
         else if urlScheme == "Phone call" {
             let alertController = UIAlertController(title: "Write phone number.", message: nil, preferredStyle: .alert)
+            
+            alertController.addTextField(configurationHandler: phonenumTextField)
+            
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: self.okHandler)
+            let cancelAction = UIAlertAction(title: "CANCEL", style: .cancel, handler: nil)
+            alertController.addAction(okAction)
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true)
+        }
+        
+        else if urlScheme == "URL" {
+            let alertController = UIAlertController(title: "Write website name.", message: nil, preferredStyle: .alert)
             
             alertController.addTextField(configurationHandler: phonenumTextField)
             
@@ -120,6 +144,10 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
         else if urlScheme == "Phone call" {
             print(urldict["Phone call"]!)
             urldict["Phone call"] = "tel://" + (phonenumTextField?.text)!
+        }
+        
+        else if urlScheme == "URL" {
+            urldict["URL"] = (phonenumTextField?.text)!
         }
         
     }
@@ -158,7 +186,6 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
         print(choose)
         imageView.image = UIImage(named: choose + ".png")
         if savedDict[choose] != nil{
-            //MatchedLabel.text = choose + " ➔ " + savedDict[choose]!
             MatchedLabel.text = savedDict[choose]!
         }
         else{
