@@ -68,6 +68,10 @@ class SecondTableViewController: UITableViewController {
     
     
     override func viewDidLoad() {
+        
+        self.tableView.separatorStyle = .none   // 리스트에서 밑줄 없애기
+        self.tableView.rowHeight = 60
+        
         super.viewDidLoad()
     }
     
@@ -90,6 +94,14 @@ class SecondTableViewController: UITableViewController {
         return installedapplist.count
     }
     
+    /*
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+ */
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell2", for: indexPath)
@@ -98,6 +110,11 @@ class SecondTableViewController: UITableViewController {
         // Configure the cell...
         cell.textLabel?.text = installedapplist[(indexPath as NSIndexPath).row]
         cell.textLabel?.textColor = UIColor.white
+        
+        cell.layer.borderColor = UIColor.white.cgColor
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 15
+        
         return cell
     }
     

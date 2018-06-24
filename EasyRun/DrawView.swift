@@ -168,10 +168,14 @@ class DrawView: UIView {
         if accuracy![text!]! > 0.995  {
             var myURL : String?
             if savedDict[text!] != nil{
-                print("a")
                 myURL = urldict[savedDict[text!]!]
-                print(myURL)
+               // print(myURL!)
             }
+            if urlflag == 1 {
+                myURL = "http://" + myURL!
+                urlflag = 0
+            }
+            
             if  myURL != nil {
                 //////
                 if let url = URL(string : "\(myURL!)") {
@@ -179,12 +183,13 @@ class DrawView: UIView {
                 }
             }
             print(text!)
-            /*넣을까 말까. (링크 시킨 후엔 패턴 사라지게)
+            /*넣을까 말까. (링크 시킨 후엔 패턴 사라지게)*/
+            /*
             self.lines = []
             self.setNeedsDisplay()
             
             self.initialize_var()
-            */
+           */
         }
         
         

@@ -8,16 +8,47 @@
 
 import UIKit
 
+var keylist : [String] = []
+public var k = 0
+
 class FirstViewController: UIViewController {
     
     @IBOutlet weak var drawView: DrawView!
+    @IBOutlet weak var clearButton: UIButton!
     
+    @IBOutlet weak var changingLabel: UILabel!
     
     //var inputImage: CGImage!
     var cnt = 0
     var flag = 0
+    var timer : Timer?
+    
+    let smile = "😀"
+    let angry = "😠"
+    let sad = "😞"
+    let check = "☑️"
+    let heart = "❤️"
+    let star = "☆"
+
+    
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        /*
+        changingLabel.text = " "
+        
+        keylist.removeAll()
+        
+        for i in savedDict.keys {
+            keylist.append(i)
+        }
+        print(savedDict)
+        
+        if !keylist.isEmpty {
+            _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(FirstViewController.changetext), userInfo: nil, repeats: true)
+        }
+        */
+        self.clearButton.layer.cornerRadius = 30
         
         for member in installedapplist{
             if member == "URL" {
@@ -36,7 +67,7 @@ class FirstViewController: UIViewController {
         drawView.layer.borderWidth = 5.0
         drawView.layer.borderColor = UIColor.white.cgColor
         
-        super.viewDidLoad()
+        //super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         if items.count == savedDict.count && checkChange == 0{
@@ -45,7 +76,32 @@ class FirstViewController: UIViewController {
         print(savedDict.count)
         loadChecklistItems2()
         loadChecklistItems3()
+        
+        
+        
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        changingLabel.text = " "
+
+        keylist.removeAll()
+        
+        for i in savedDict.keys {
+            keylist.append(i)
+        }
+        print(savedDict)
+        
+        if !keylist.isEmpty {
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(FirstViewController.changetext), userInfo: nil, repeats: true)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+            timer?.invalidate()
+    }
+    
     
     @IBAction func tappedClear(_ sender: Any) {
         drawView.lines = []
@@ -59,6 +115,69 @@ class FirstViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @objc func changetext() {
+        if savedDict[keylist[k]] == "URL" {
+            if keylist[k] == "Smile Face" {
+                self.changingLabel.text = smile + "    ➔    " + urldict[savedDict[keylist[k]]!]!
+            }
+            else if keylist[k] == "Sad Face" {
+                self.changingLabel.text = sad + "    ➔    " + urldict[savedDict[keylist[k]]!]!
+                
+            }
+            else if keylist[k] == "Angry Face" {
+                self.changingLabel.text = angry + "    ➔    " + urldict[savedDict[keylist[k]]!]!
+                
+            }
+            else if keylist[k] == "Star" {
+                self.changingLabel.text = star + "    ➔    " + urldict[savedDict[keylist[k]]!]!
+                
+            }
+            else if keylist[k] == "Heart" {
+                self.changingLabel.text = heart + "    ➔    " + urldict[savedDict[keylist[k]]!]!
+                
+            }
+            else if keylist[k] == "Check" {
+                self.changingLabel.text = check + "    ➔    " + urldict[savedDict[keylist[k]]!]!
+                
+            }
+            else {
+                self.changingLabel.text = keylist[k] + "    ➔    " + urldict[savedDict[keylist[k]]!]!
+            }
+        }
+        else {
+            if keylist[k] == "Smile Face" {
+                self.changingLabel.text = smile + "    ➔    " + savedDict[keylist[k]]!
+            }
+            else if keylist[k] == "Sad Face" {
+                self.changingLabel.text = sad + "    ➔    " + savedDict[keylist[k]]!
+
+            }
+            else if keylist[k] == "Angry Face" {
+                self.changingLabel.text = angry + "    ➔    " + savedDict[keylist[k]]!
+
+            }
+            else if keylist[k] == "Star" {
+                self.changingLabel.text = star + "    ➔    " + savedDict[keylist[k]]!
+
+            }
+            else if keylist[k] == "Heart" {
+                self.changingLabel.text = heart + "    ➔    " + savedDict[keylist[k]]!
+
+            }
+            else if keylist[k] == "Check" {
+                self.changingLabel.text = check + "    ➔    " + savedDict[keylist[k]]!
+
+            }
+            else {
+                self.changingLabel.text = keylist[k] + "    ➔    " + savedDict[keylist[k]]!
+            }
+        }
+        
+        k = (k + 1) % keylist.count
+        
     }
 }
 
@@ -144,3 +263,7 @@ func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
     
     return newImage!
 }
+
+
+
+

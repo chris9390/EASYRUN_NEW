@@ -15,6 +15,10 @@ class TableViewController: UITableViewController {
     //@IBOutlet var tvListView: UITableView!
     
     override func viewDidLoad() {
+        
+        self.tableView.separatorStyle = .none   // 리스트에서 밑줄 없애기
+        self.tableView.rowHeight = 60
+        
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -54,6 +58,14 @@ class TableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return items.count
     }
+    
+    /*
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+ */
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,6 +74,12 @@ class TableViewController: UITableViewController {
         // Configure the cell...
         cell.textLabel?.text = items[(indexPath as NSIndexPath).row]
         cell.textLabel?.textColor = UIColor.white
+        
+        cell.layer.borderColor = UIColor.white.cgColor
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 15
+        
+        
         return cell
     }
     
@@ -83,17 +101,82 @@ class TableViewController: UITableViewController {
             let removeitem = String(result.split(separator: " ")[0])
             tableView.deleteRows(at: [indexPath], with: .fade)
             savedDict.removeValue(forKey: removeitem)
+            k = k - 1
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
         saveChecklistItems()
     }
     
+    let smile = "😀"
+    let angry = "😠"
+    let sad = "😞"
+    let check = "☑️"
+    let heart = "❤️"
+    let star = "☆"
+    
+    
     override func viewWillAppear(_ animated: Bool){
+        
         if items.count != savedDict.count || checkChange == 1{
             items.removeAll()
-            for (key, value) in savedDict{
-                items.append(key + " ➔ " + value)
+            for (key, value) in savedDict {
+                if value == "URL" {
+                    if key == "Smile Face" {
+                        items.append(smile + "    ➔    " + urldict["URL"]!)
+                    }
+                    else if key == "Sad Face" {
+                        items.append(sad + "    ➔    " + urldict["URL"]!)
+                        
+                    }
+                    else if key == "Angry Face" {
+                        items.append(angry + "    ➔    " + urldict["URL"]!)
+                        
+                    }
+                    else if key == "Star" {
+                        items.append(star + "    ➔    " + urldict["URL"]!)
+                        
+                    }
+                    else if key == "Heart" {
+                        items.append(heart + "    ➔    " + urldict["URL"]!)
+                        
+                    }
+                    else if key == "Check" {
+                        items.append(check + "    ➔    " + urldict["URL"]!)
+                        
+                    }
+                    else {
+                        items.append(key + "    ➔    " + urldict["URL"]!)
+                    }
+                }
+                else {
+                    if key == "Smile Face" {
+                        items.append(smile + "    ➔    " + value)
+                    }
+                    else if key == "Sad Face" {
+                        items.append(sad + "    ➔    " + value)
+
+                    }
+                    else if key == "Angry Face" {
+                        items.append(angry + "    ➔    " + value)
+
+                    }
+                    else if key == "Star" {
+                        items.append(star + "    ➔    " + value)
+
+                    }
+                    else if key == "Heart" {
+                        items.append(heart + "    ➔    " + value)
+
+                    }
+                    else if key == "Check" {
+                        items.append(check + "    ➔    " + value)
+
+                    }
+                    else {
+                        items.append(key + "    ➔    " + value)
+                    }
+                }
             }
             if items.count != 0{
                 let indexPath = IndexPath(row: items.count - 1, section: 0)
@@ -163,3 +246,5 @@ func loadChecklistItems() {
         unarchiver.finishDecoding()
     }
 }
+
+

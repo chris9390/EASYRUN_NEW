@@ -12,23 +12,37 @@ var savedDict : [String:String] = [:]
 var images = ["0.png", "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png", "a.png", "b.png", "c.png", "d.png", "e.png", "f.png", "Smile Face.png", "Sad Face.png", "Angry Face.png", "Check.png", "Heart.png", "Star.png"]
 var checkChange = 0
 var numberOfDict = 0
+public var urlflag = 0
 
 class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     
     var phonenumTextField: UITextField?
     
+    @IBOutlet weak var matchingLabel: UILabel!
     @IBOutlet weak var LabelView: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var pickerView: UIPickerView!{
         didSet{
             //pickerView.selectedRow(inComponent: 0)
-            
+            choose = patternDataSource.title(for: pickerView.selectedRow(inComponent: 0))!
+            if savedDict[choose] != nil{
+                if savedDict[choose] == "URL" {
+                    MatchedLabel.text = urldict["URL"]
+                }
+                else {
+                    MatchedLabel.text = savedDict[choose]!
+                }
+            }
+            else{
+                MatchedLabel.text = "X (Not Matched)"
+            }
             
         }
     }
+    @IBOutlet weak var matchingButton: UIButton!
     @IBOutlet weak var MatchedLabel: UILabel!
     @IBAction func MatchPattern(_ sender: UIButton) {
-        
+
         if MatchedLabel.text != "X (Not Matched)" {
             let alertController = UIAlertController(title: "Do you want to overwrite?", message: nil, preferredStyle: .alert)
             
@@ -64,8 +78,32 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
     
     
     
-    override func viewDidLoad() {
+    /*
+    override func viewWillAppear(_ animated: Bool) {
+        choose = patternDataSource.title(for: pickerView.selectedRow(inComponent: 0))!
+        if savedDict[choose] != nil{
+            MatchedLabel.text = savedDict[choose]!
+        }
+        else{
+            MatchedLabel.text = "X (Not Matched)"
+        }
         
+        /*
+        pickerView.selectRow(0, inComponent: 0, animated: false)
+        pickerView.selectedRow(inComponent: 0)
+        super.viewDidAppear(true)
+ */
+    }
+    */
+    
+    override func viewDidLoad() {
+        urlflag = 0
+        matchingLabel.layer.borderWidth = 1.5
+        matchingLabel.layer.borderColor = UIColor.white.cgColor
+        matchingLabel.layer.cornerRadius = 8
+        
+        self.matchingButton.layer.cornerRadius = 20
+
         /*
         var itemAt: String?
         var defaultRowIndex = patternDataSource.patterns.index(of: itemAt!)
@@ -109,6 +147,7 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
         }
         
         else if urlScheme == "URL" {
+            urlflag = 1
             let alertController = UIAlertController(title: "Write website name.", message: nil, preferredStyle: .alert)
             
             alertController.addTextField(configurationHandler: phonenumTextField)
@@ -127,7 +166,13 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
     
     func phonenumTextField(textField : UITextField!){
         phonenumTextField = textField
+        
+        if urlScheme == "URL"{
+            phonenumTextField?.placeholder = "Website name"
+        }
+        else {
         phonenumTextField?.placeholder = "Phone number"
+        }
     }
     
     
@@ -153,8 +198,7 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
     }
     
     
-    
-    
+  
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -186,7 +230,13 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
         print(choose)
         imageView.image = UIImage(named: choose + ".png")
         if savedDict[choose] != nil{
-            MatchedLabel.text = savedDict[choose]!
+            if savedDict[choose] == "URL" {
+                MatchedLabel.text = urldict["URL"]
+            }
+            else {
+                MatchedLabel.text = savedDict[choose]!
+                
+            }
         }
         else{
             MatchedLabel.text = "X (Not Matched)"
