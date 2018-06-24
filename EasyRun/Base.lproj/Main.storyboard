@@ -335,7 +335,6 @@
         <image name="list1" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JXw-jq-I5G"/>
         <segue reference="8Ux-WX-NB0"/>
     </inferredMetricsTieBreakers>
 </document>

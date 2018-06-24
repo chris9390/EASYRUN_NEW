@@ -119,6 +119,8 @@ class FirstViewController: UIViewController {
     
     
     @objc func changetext() {
+        k = k % keylist.count
+        
         if savedDict[keylist[k]] == "URL" {
             if keylist[k] == "Smile Face" {
                 self.changingLabel.text = smile + "    ➔    " + urldict[savedDict[keylist[k]]!]!
@@ -175,8 +177,9 @@ class FirstViewController: UIViewController {
                 self.changingLabel.text = keylist[k] + "    ➔    " + savedDict[keylist[k]]!
             }
         }
-        
+        print(savedDict.count)
         k = (k + 1) % keylist.count
+        print(k)
         
     }
 }

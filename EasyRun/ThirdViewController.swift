@@ -98,20 +98,10 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
     
     override func viewDidLoad() {
         urlflag = 0
-        matchingLabel.layer.borderWidth = 1.5
-        matchingLabel.layer.borderColor = UIColor.white.cgColor
-        matchingLabel.layer.cornerRadius = 8
+
         
         self.matchingButton.layer.cornerRadius = 20
 
-        /*
-        var itemAt: String?
-        var defaultRowIndex = patternDataSource.patterns.index(of: itemAt!)
-        if defaultRowIndex == nil {
-            defaultRowIndex = 0
-        }
-        pickerView.selectRow(defaultRowIndex!, inComponent: 0, animated: true)
-        */
         
         imageView.layer.borderWidth = 1.5
         imageView.layer.borderColor = UIColor.white.cgColor
@@ -119,11 +109,13 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
         pickerView.layer.borderColor = UIColor.white.cgColor
         LabelView.layer.borderWidth = 1.5
         LabelView.layer.borderColor = UIColor.white.cgColor
+        
+        
         if urlScheme == "Messages " {
             let alertController = UIAlertController(title: "Write phone number.", message: nil, preferredStyle: .alert)
             
             alertController.addTextField(configurationHandler: phonenumTextField)
-            
+
             let okAction = UIAlertAction(title: "OK", style: .default, handler: self.okHandler)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alertController.addAction(okAction)
@@ -137,7 +129,7 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
             let alertController = UIAlertController(title: "Write phone number.", message: nil, preferredStyle: .alert)
             
             alertController.addTextField(configurationHandler: phonenumTextField)
-            
+
             let okAction = UIAlertAction(title: "OK", style: .default, handler: self.okHandler)
             let cancelAction = UIAlertAction(title: "CANCEL", style: .cancel, handler: nil)
             alertController.addAction(okAction)
@@ -171,10 +163,10 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
             phonenumTextField?.placeholder = "Website name"
         }
         else {
-        phonenumTextField?.placeholder = "Phone number"
+            phonenumTextField?.placeholder = "Phone number"
         }
     }
-    
+
     
     func okHandler(alert: UIAlertAction) {
         
@@ -196,6 +188,9 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
         }
         
     }
+
+    
+    
     
     
   

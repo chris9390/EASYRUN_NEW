@@ -98,10 +98,29 @@ class TableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             let result = items.remove(at: (indexPath as NSIndexPath).row)
-            let removeitem = String(result.split(separator: " ")[0])
+            var removeitem = String(result.split(separator: "\t")[0])
+            if removeitem == smile {
+                removeitem = "Smile Face"
+            }
+            else if removeitem == sad {
+                removeitem = "Sad Face"
+            }
+            else if removeitem == angry {
+                removeitem = "Angry Face"
+            }
+            else if removeitem == star {
+                removeitem = "Star"
+            }
+            else if removeitem == heart {
+                removeitem = "Heart"
+            }
+            else if removeitem == check {
+                removeitem = "Check"
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
             savedDict.removeValue(forKey: removeitem)
-            k = k - 1
+            
+          //  k = k - 1                                // 테이블에서 하나 삭제해주면 k도 1 줄여준다.
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
@@ -123,58 +142,58 @@ class TableViewController: UITableViewController {
             for (key, value) in savedDict {
                 if value == "URL" {
                     if key == "Smile Face" {
-                        items.append(smile + "    ➔    " + urldict["URL"]!)
+                        items.append(smile + "\t➔\t" + urldict["URL"]!)
                     }
                     else if key == "Sad Face" {
-                        items.append(sad + "    ➔    " + urldict["URL"]!)
+                        items.append(sad + "\t➔\t" + urldict["URL"]!)
                         
                     }
                     else if key == "Angry Face" {
-                        items.append(angry + "    ➔    " + urldict["URL"]!)
+                        items.append(angry + "\t➔\t" + urldict["URL"]!)
                         
                     }
                     else if key == "Star" {
-                        items.append(star + "    ➔    " + urldict["URL"]!)
+                        items.append(star + "\t➔\t" + urldict["URL"]!)
                         
                     }
                     else if key == "Heart" {
-                        items.append(heart + "    ➔    " + urldict["URL"]!)
+                        items.append(heart + "\t➔\t" + urldict["URL"]!)
                         
                     }
                     else if key == "Check" {
-                        items.append(check + "    ➔    " + urldict["URL"]!)
+                        items.append(check + "\t➔\t" + urldict["URL"]!)
                         
                     }
                     else {
-                        items.append(key + "    ➔    " + urldict["URL"]!)
+                        items.append(key + "\t➔\t" + urldict["URL"]!)
                     }
                 }
                 else {
                     if key == "Smile Face" {
-                        items.append(smile + "    ➔    " + value)
+                        items.append(smile + "\t➔\t" + value)
                     }
                     else if key == "Sad Face" {
-                        items.append(sad + "    ➔    " + value)
+                        items.append(sad + "\t➔\t" + value)
 
                     }
                     else if key == "Angry Face" {
-                        items.append(angry + "    ➔    " + value)
+                        items.append(angry + "\t➔\t" + value)
 
                     }
                     else if key == "Star" {
-                        items.append(star + "    ➔    " + value)
+                        items.append(star + "\t➔\t" + value)
 
                     }
                     else if key == "Heart" {
-                        items.append(heart + "    ➔    " + value)
+                        items.append(heart + "\t➔\t" + value)
 
                     }
                     else if key == "Check" {
-                        items.append(check + "    ➔    " + value)
+                        items.append(check + "\t➔\t" + value)
 
                     }
                     else {
-                        items.append(key + "    ➔    " + value)
+                        items.append(key + "\t➔\t" + value)
                     }
                 }
             }
