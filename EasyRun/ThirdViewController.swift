@@ -97,7 +97,7 @@ class ThirdViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
     */
     
     override func viewDidLoad() {
-        urlflag = 0
+//urlflag = 0
 
         
         self.matchingButton.layer.cornerRadius = 20

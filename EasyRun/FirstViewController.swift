@@ -177,9 +177,9 @@ class FirstViewController: UIViewController {
                 self.changingLabel.text = keylist[k] + "    ➔    " + savedDict[keylist[k]]!
             }
         }
-        print(savedDict.count)
+        //print(savedDict.count)
         k = (k + 1) % keylist.count
-        print(k)
+        //print(k)
         
     }
 }

@@ -74,7 +74,7 @@ class DrawView: UIView {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        linewidth = 12/300 * self.frame.size.width
+        linewidth = 8/300 * self.frame.size.width
         let drawPath = UIBezierPath()
         drawPath.lineCapStyle = .round
         
@@ -162,18 +162,21 @@ class DrawView: UIView {
         for i in (accuracy?.keys)!{
             print(i,accuracy![i])
         }
-        */
+         */
         
         
-        if accuracy![text!]! > 0.995  {
+        if accuracy![text!]! > 0.998  {
+          //  print(savedDict[text!])
             var myURL : String?
             if savedDict[text!] != nil{
                 myURL = urldict[savedDict[text!]!]
                // print(myURL!)
             }
-            if urlflag == 1 {
+           // if urlflag == 1 {
+            if savedDict[text!]! == "URL" {
                 myURL = "http://" + myURL!
-                urlflag = 0
+                print(myURL!)
+               // urlflag = 0
             }
             
             if  myURL != nil {
