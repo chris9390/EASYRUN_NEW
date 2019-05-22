@@ -1,7 +1,26 @@
 # EasyRun
-180513 - Homebrew 다운
-       - Carthage 다운
-       - Podfile init 으로 Podfile은 만들었는데, 아직도 RxCocoa, RxSwift 등 등이 import 가 안됨...
 
-https://useyourloaf.com/blog/stretching-redrawing-and-positioning-with-contentmode/
-(scale, center)
+
+# 프로젝트 소개
+
+# 지도교수 및 멘토 소개
+
+# 구성원 소개 및 역할 분담
+
+# 프로젝트 추진 배경
+
+# Launcher 어플리케이션 소개
+
+# Launcher 어플리케이션 개발자 피드백
+
+# 프로젝트 상세
+
+# 프로젝트 결과
+
+# 추가 기능
+
+# 회의 내용
+
+# 앞으로의 과제
+
+# 기대 효과
