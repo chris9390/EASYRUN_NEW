@@ -23,19 +23,42 @@
 
 # 프로젝트 추진 배경
 설치된 어플이 너무 많을 경우 찾거나 관리하는데 어려움이 있다. 
+![어플사진](https://user-images.githubusercontent.com/25974715/58153100-36aaef00-7ca9-11e9-9645-dc42abab1c31.jpeg)
 
 # Launcher 어플리케이션 소개
+<div>
+  <img width="658" alt="Launcher_1" src="https://user-images.githubusercontent.com/25974715/58153182-6659f700-7ca9-11e9-9129-65a0216993ad.png">
+  <img width="983" alt="Launcher_2" src="https://user-images.githubusercontent.com/25974715/58153208-71148c00-7ca9-11e9-8ced-6ba04f2032b0.png">
+</div>
 
 # Launcher 어플리케이션 개발자 피드백
+<div>
+  <img width="620" alt="이메일_1" src="https://user-images.githubusercontent.com/25974715/58153248-85f11f80-7ca9-11e9-9e1a-f26349b2890e.png">
+  <img width="1345" alt="이메일_2" src="https://user-images.githubusercontent.com/25974715/58153269-8ee1f100-7ca9-11e9-8d41-76f85f5b35ec.png">
+</div>
 
 # 프로젝트 상세
+### 1. Google Firebase 플랫폼을 통한 DB 연동
+
+**Firebase Database에 저장된 URL Scheme**과 비교하여 현재 설치된 앱 목록 표시 
+<span>
+  <img alt="EasyRun_앱목록1" src="https://user-images.githubusercontent.com/25974715/58153493-1d567280-7caa-11e9-8fd1-1cdb1bdd64a4.png">
+</span>
+<span>
+  <img alt="Firebase" src="https://user-images.githubusercontent.com/25974715/58153425-ebdda700-7ca9-11e9-9ad4-1ee9113b0c92.png">
+</span>
 
 # 프로젝트 결과
 
+
 # 추가 기능
+
 
 # 회의 내용
 
+
 # 앞으로의 과제
 
+
 # 기대 효과
+
