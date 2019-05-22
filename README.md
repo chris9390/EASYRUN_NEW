@@ -42,7 +42,7 @@
 
 **Firebase Database에 저장된 URL Scheme**과 비교하여 현재 설치된 앱 목록 표시
 
-<div class="inline">
+<div style="display:inline-block">
 <div>
   <img alt="EasyRun_앱목록1" src="https://user-images.githubusercontent.com/25974715/58153493-1d567280-7caa-11e9-8fd1-1cdb1bdd64a4.png">
 </div>
