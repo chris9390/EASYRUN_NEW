@@ -43,12 +43,32 @@
 **Firebase Database에 저장된 URL Scheme**과 비교하여 현재 설치된 앱 목록 표시
 
 <div>
-<span>
-  <img alt="EasyRun_앱목록1" src="https://user-images.githubusercontent.com/25974715/58153493-1d567280-7caa-11e9-8fd1-1cdb1bdd64a4.png">
-</span>
-<span>
-  <img alt="Firebase" src="https://user-images.githubusercontent.com/25974715/58153425-ebdda700-7ca9-11e9-9ad4-1ee9113b0c92.png">
-</span>
+  <span>
+    <img width="20%" alt="EasyRun_앱목록1" src="https://user-images.githubusercontent.com/25974715/58153493-1d567280-7caa-11e9-8fd1-1cdb1bdd64a4.png">
+  </span>
+  <span>
+    <img width="70%" alt="Firebase" src="https://user-images.githubusercontent.com/25974715/58153425-ebdda700-7ca9-11e9-9ad4-1ee9113b0c92.png">
+  </span>
+</div>
+
+### 2. 직접 학습시킨 CoreML 모델 적용
+
+* Jupyter Notebook에서 python 코드로 직접 학습 시킨 CoreML 모델 사용. (Keras 이용) 
+* 0~9, a~f, check, heart, star, smile face, sad face, angry face 등의 패턴을 학습.
+* 학습시킨 CoreML 모델을 다음 화면에 적용.
+
+<div>
+  <span>
+    <img width="30%" alt="EasyRun_메인" src="https://user-images.githubusercontent.com/25974715/58156013-17fc2680-7cb0-11e9-96bc-806da63e7d36.jpg">
+  </span>
+    
+  <span>
+    <img width="30%" alt="EasyRun_매칭목록1" src="https://user-images.githubusercontent.com/25974715/58156079-437f1100-7cb0-11e9-9224-6a491a13850f.jpg">
+  </span>
+  
+  <span>
+    <img width="30%" alt="EasyRun_매칭목록2" src="https://user-images.githubusercontent.com/25974715/58156089-4974f200-7cb0-11e9-8c43-68bcc15f4fc5.jpg">
+  </span>
 </div>
 
 # 프로젝트 결과
