@@ -1,5 +1,5 @@
 # EasyRun
-
+패턴 인식을 통한 편리한 앱 실행(CoreML을 통한 launcher 어플리케이션)
 
 # 프로젝트 소개
 
