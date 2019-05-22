@@ -40,13 +40,16 @@
 # 프로젝트 상세
 ### 1. Google Firebase 플랫폼을 통한 DB 연동
 
-**Firebase Database에 저장된 URL Scheme**과 비교하여 현재 설치된 앱 목록 표시 
+**Firebase Database에 저장된 URL Scheme**과 비교하여 현재 설치된 앱 목록 표시
+
+<div>
 <span>
   <img alt="EasyRun_앱목록1" src="https://user-images.githubusercontent.com/25974715/58153493-1d567280-7caa-11e9-8fd1-1cdb1bdd64a4.png">
 </span>
 <span>
   <img alt="Firebase" src="https://user-images.githubusercontent.com/25974715/58153425-ebdda700-7ca9-11e9-9ad4-1ee9113b0c92.png">
 </span>
+</div>
 
 # 프로젝트 결과
 
