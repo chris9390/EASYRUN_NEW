@@ -164,37 +164,37 @@ class DrawView: UIView {
         }
          */
         
-        
-        if accuracy![text!]! > 0.998  {
-          //  print(savedDict[text!])
-            var myURL : String?
-            if savedDict[text!] != nil{
-                myURL = urldict[savedDict[text!]!]
-               // print(myURL!)
-            }
-           // if urlflag == 1 {
-            if savedDict[text!]! == "URL" {
-                myURL = "http://" + myURL!
-                print(myURL!)
-               // urlflag = 0
-            }
-            
-            if  myURL != nil {
-                //////
-                if let url = URL(string : "\(myURL!)") {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        if savedDict.keys.contains(text!){
+            if accuracy![text!]! > 0.998  {
+              //  print(savedDict[text!])
+                var myURL : String?
+                if savedDict[text!] != nil{
+                    myURL = urldict[savedDict[text!]!]
+                   // print(myURL!)
                 }
+               // if urlflag == 1 {
+                if savedDict[text!]! == "URL" {
+                    myURL = "http://" + myURL!
+                    print(myURL!)
+                   // urlflag = 0
+                }
+                
+                if  myURL != nil {
+                    //////
+                    if let url = URL(string : "\(myURL!)") {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }
+                }
+                print(text!)
+                /*넣을까 말까. (링크 시킨 후엔 패턴 사라지게)*/
+                /*
+                self.lines = []
+                self.setNeedsDisplay()
+                
+                self.initialize_var()
+               */
             }
-            print(text!)
-            /*넣을까 말까. (링크 시킨 후엔 패턴 사라지게)*/
-            /*
-            self.lines = []
-            self.setNeedsDisplay()
-            
-            self.initialize_var()
-           */
         }
-        
         
     }
     

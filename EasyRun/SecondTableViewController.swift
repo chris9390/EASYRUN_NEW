@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import FirebaseDatabase
+//import FirebaseDatabase
+import Firebase
 
 var installedapplist : [String] = []
 var urls : [String] = []

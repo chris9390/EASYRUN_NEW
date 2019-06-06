@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3085611722A8A5CA0009B86D /* mnistCNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D36D7D3220DB73CE002CEE95 /* mnistCNN.mlmodel */; };
 		67F401D62F7C1B047BB7A130 /* Pods_EasyRun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905D64D3C76A1F8238D1891A /* Pods_EasyRun.framework */; };
 		D3153E8620A96C9900EC918D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3153E8520A96C9800EC918D /* GoogleService-Info.plist */; };
 		D3153E8B20AEE99C00EC918D /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3153E8A20AEE99C00EC918D /* DrawView.swift */; };
 		D3284C6A20A32342000D259B /* SecondTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3284C6920A32342000D259B /* SecondTableViewController.swift */; };
 		D3313B1E207F722D005FD879 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3313B1D207F722D005FD879 /* FirstViewController.swift */; };
-		D36D7D3320DB73CE002CEE95 /* mnistCNN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D36D7D3220DB73CE002CEE95 /* mnistCNN.mlmodel */; };
 		D3B65648209B2DF100D08DF9 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B65647209B2DF100D08DF9 /* ThirdViewController.swift */; };
 		D3F9E3ED20A02C8500D17028 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F9E3EC20A02C8500D17028 /* TableViewController.swift */; };
 		D3FE78BF207501A50073CD75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE78BE207501A50073CD75 /* AppDelegate.swift */; };
@@ -29,7 +29,7 @@
 		D3153E8A20AEE99C00EC918D /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		D3284C6920A32342000D259B /* SecondTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTableViewController.swift; sourceTree = "<group>"; };
 		D3313B1D207F722D005FD879 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		D36D7D3220DB73CE002CEE95 /* mnistCNN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = mnistCNN.mlmodel; path = "../../0621 모델/mnistCNN.mlmodel"; sourceTree = "<group>"; };
+		D36D7D3220DB73CE002CEE95 /* mnistCNN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = mnistCNN.mlmodel; sourceTree = "<group>"; };
 		D3B65647209B2DF100D08DF9 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		D3F9E3EC20A02C8500D17028 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		D3FE78BB207501A50073CD75 /* EasyRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,20 +184,20 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-EasyRun/Pods-EasyRun-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-EasyRun/Pods-EasyRun-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EasyRun/Pods-EasyRun-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyRun/Pods-EasyRun-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E29A5E76C37CDCD4C4B25DBA /* [CP] Check Pods Manifest.lock */ = {
@@ -225,13 +225,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3085611722A8A5CA0009B86D /* mnistCNN.mlmodel in Sources */,
 				D3284C6A20A32342000D259B /* SecondTableViewController.swift in Sources */,
 				D3B65648209B2DF100D08DF9 /* ThirdViewController.swift in Sources */,
 				D3153E8B20AEE99C00EC918D /* DrawView.swift in Sources */,
 				D3FE78BF207501A50073CD75 /* AppDelegate.swift in Sources */,
 				D3F9E3ED20A02C8500D17028 /* TableViewController.swift in Sources */,
 				D3313B1E207F722D005FD879 /* FirstViewController.swift in Sources */,
-				D36D7D3320DB73CE002CEE95 /* mnistCNN.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
